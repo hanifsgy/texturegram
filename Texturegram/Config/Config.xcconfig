@@ -1,0 +1,13 @@
+//
+//  Config.xcconfig
+//  Texturegram
+//
+//  Created by Hanif Sugiyanto on 22/03/19.
+//  Copyright © 2019 Personal Organization. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+CLIENT_ID = c6979e8bc5ea4d0b0f9fd79a034441e817dc3bcfdde074b0dad30a167d3a0ec8
+CLIENT_SECRET = 79e8f6ab2d04ae5d5c503dec7ae5fae59fd07152b95a22d20da84a7980feed20
