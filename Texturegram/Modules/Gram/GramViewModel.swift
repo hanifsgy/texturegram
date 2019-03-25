@@ -39,7 +39,7 @@ final class GramViewModel: ViewModelType {
     let items = refreshSubject.startWith("")
       .flatMapLatest { (_) -> Observable<[GramModel]> in
         return NetworkService.instance
-          .requestObject(UnsplashAPI.getRandomPhotos,
+          .requestObject(UnsplashAPI.getPhotos(page: 1, perPage: 30, orderBy: .latest),
                          c: GramModelResponses.self)
           .do(onSuccess: { [weak self] (model) in
             guard let `self` = self else { return }

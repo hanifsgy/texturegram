@@ -12,6 +12,9 @@ public enum UnsplashAPI {
   
   case getRandomPhotos
   
+  /// Photos
+  case getPhotos(page: Int, perPage: Int, orderBy: OrderByType)
+  
 }
 
 extension UnsplashAPI: TargetType {
@@ -19,7 +22,8 @@ extension UnsplashAPI: TargetType {
   public var headers: [String : String]? {
     return [
       "Content-Type"  : "application/json",
-      "Accept"        : "application/json"
+      "Accept"        : "application/json",
+      "Authorization" : "Client-ID \(AppContext.instance.infoForKey("CLIENT_ID"))"
     ]
   }
   
@@ -31,12 +35,15 @@ extension UnsplashAPI: TargetType {
     switch self {
     case .getRandomPhotos:
       return "/photos/"
+    case .getPhotos:
+      return "/photos"
     }
   }
   
   public var method: Moya.Method {
     switch self {
-    case .getRandomPhotos:
+    case .getRandomPhotos,
+         .getPhotos:
       return .get
     }
   }
@@ -50,6 +57,12 @@ extension UnsplashAPI: TargetType {
     case .getRandomPhotos:
       return [
         "client_id": AppContext.instance.infoForKey("CLIENT_ID")
+      ]
+    case .getPhotos(let (page, perPage, orderBy)):
+      return [
+        "page": page,
+        "per_page": perPage,
+        "order_by": orderBy.rawValue
       ]
     }
   }

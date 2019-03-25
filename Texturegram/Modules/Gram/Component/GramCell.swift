@@ -17,13 +17,14 @@ class GramCell: ASCellNode {
     static let placeholderColor: UIColor = UIColor.gray.withAlphaComponent(0.8)
   }
   
-  lazy var profileImageNode: ASImageNode = {
-    let node = ASImageNode()
+  lazy var profileImageNode: ASNetworkImageNode = {
+    let node = ASNetworkImageNode()
     node.clipsToBounds = true
-    node.image = #imageLiteral(resourceName: "ic_profil")
     node.placeholderColor = Attributes.placeholderColor
     node.style.preferredSize = CGSize(width: 25.0, height: 25.0)
     node.cornerRadius = 12.5
+    node.placeholderEnabled = true
+    node.placeholderFadeDuration = 0.3
     return node
   }()
   
@@ -31,7 +32,8 @@ class GramCell: ASCellNode {
     let node = ASTextNode()
     node.maximumNumberOfLines = 1
     node.placeholderColor = Attributes.placeholderColor
-    node.attributedText = NSAttributedString(string: "Omaewa mou sindeirou")
+    node.placeholderEnabled = true
+    node.placeholderFadeDuration = 0.3
     return node
   }()
   
@@ -39,7 +41,8 @@ class GramCell: ASCellNode {
     let node = ASTextNode()
     node.maximumNumberOfLines = 1
     node.placeholderColor = Attributes.placeholderColor
-    node.attributedText = NSAttributedString(string: "16w")
+    node.placeholderEnabled = true
+    node.placeholderFadeDuration = 0.3
     return node
   }()
   
@@ -48,13 +51,15 @@ class GramCell: ASCellNode {
     node.style.preferredSize = CGSize(width: UIScreen.main.bounds.width, height: 200)
     node.clipsToBounds = true
     node.placeholderColor = Attributes.placeholderColor
+    node.placeholderEnabled = true
+    node.placeholderFadeDuration = 0.3
     return node
   }()
   
-  lazy var statusLikeNode: ASButtonNode = {
-    let node = ASButtonNode()
-    node.setImage(#imageLiteral(resourceName: "ic_profil"), for: .normal)
-    node.setTitle("1.234 likes", with: UIFont.systemFont(ofSize: 12, weight: .medium), with: UIColor.darkGray, for: .normal)
+  lazy var statusLikeNode: ASImageNode = {
+    let node = ASImageNode()
+    node.image = #imageLiteral(resourceName: "ic_favorite_48pt")
+    node.style.preferredSize = CGSize(width: 20.0, height: 20.0)
     return node
   }()
   
@@ -65,12 +70,18 @@ class GramCell: ASCellNode {
     self.selectionStyle = .none
     
     self.postNode
-      .setURL(URL(string: data.urls.regular!),
+      .setURL(URL(string: data.urls.full!),
               resetToDefault: true)
+    
+    self.postNode
+      .placeholderColor = hexStringToUIColor(hex: data.color)
     
     self.usernameNode
       .attributedText = NSAttributedString(string: data.user.name ?? "")
     
+    self.profileImageNode
+      .setURL(URL(string: data.user.profileImage?.medium ?? "")!,
+              resetToDefault: true)
   }
   
 }
@@ -85,7 +96,7 @@ extension GramCell {
     let headerStackSpec = ASStackLayoutSpec(direction: .horizontal,
                                             spacing: 10.0,
                                             justifyContent: .center,
-                                            alignItems: .notSet,
+                                            alignItems: .start,
                                             children: [profileImageNode, usernameNode, timesNode])
     
     let contentStack = ASStackLayoutSpec(direction: .vertical,
@@ -102,4 +113,29 @@ extension GramCell {
                              child: contentStack)
   }
   
+}
+
+
+extension GramCell {
+  func hexStringToUIColor(hex:String) -> UIColor {
+    var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+    
+    if (cString.hasPrefix("#")) {
+      cString.remove(at: cString.startIndex)
+    }
+    
+    if ((cString.count) != 6) {
+      return UIColor.gray
+    }
+    
+    var rgbValue:UInt32 = 0
+    Scanner(string: cString).scanHexInt32(&rgbValue)
+    
+    return UIColor(
+      red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+      green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+      blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+      alpha: CGFloat(1.0)
+    )
+  }
 }
