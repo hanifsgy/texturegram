@@ -11,7 +11,7 @@ import AsyncDisplayKit
 import RxCocoa
 import RxSwift
 
-class GramController: ASViewController<ASTableNode>{
+class GramController: ASDKViewController<ASTableNode>{
   
   /// Context
   private var context: ASBatchContext?
