@@ -25,7 +25,7 @@ public struct NetworkService {
 
 public extension NetworkService {
   
-  public func requestObject<T: TargetType, C: Decodable>(_ t: T, c: C.Type) -> Single<C> {
+  func requestObject<T: TargetType, C: Decodable>(_ t: T, c: C.Type) -> Single<C> {
     return provider.rx.request(MultiTarget(t))
       .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
       .filterSuccessfulStatusAndRedirectCodes()

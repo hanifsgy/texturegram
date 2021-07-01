@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		231ED12C730380EF532AA020 /* Pods_Texturegram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454AC4E02F549124EC907E4A /* Pods_Texturegram.framework */; };
+		52E5E409268E0F6A00438E2D /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E5E408268E0F6A00438E2D /* HomeController.swift */; };
+		52E5E40E268E186D00438E2D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E5E40D268E186D00438E2D /* AppCoordinator.swift */; };
+		52E5E411268E198E00438E2D /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E5E410268E198E00438E2D /* BaseCoordinator.swift */; };
+		52E5E415268E19E200438E2D /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E5E414268E19E200438E2D /* HomeCoordinator.swift */; };
+		52E5E419268E1B8400438E2D /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E5E418268E1B8400438E2D /* RawRepresentable.swift */; };
+		52E5E41D268E1DEF00438E2D /* GramCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E5E41C268E1DEF00438E2D /* GramCoordinator.swift */; };
 		847B4A0D2248E2080071A8F5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B4A0C2248E2080071A8F5 /* UserModel.swift */; };
 		847B4A102248ED990071A8F5 /* OrderByType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B4A0F2248ED990071A8F5 /* OrderByType.swift */; };
 		84EEEC2E22449D00001D993D /* ASControlNode+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEEC2D22449D00001D993D /* ASControlNode+Rx.swift */; };
@@ -34,6 +40,12 @@
 /* Begin PBXFileReference section */
 		31E0E4832761FB7AC1B16A8A /* Pods-Texturegram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Texturegram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Texturegram/Pods-Texturegram.release.xcconfig"; sourceTree = "<group>"; };
 		454AC4E02F549124EC907E4A /* Pods_Texturegram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Texturegram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52E5E408268E0F6A00438E2D /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		52E5E40D268E186D00438E2D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		52E5E410268E198E00438E2D /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		52E5E414268E19E200438E2D /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		52E5E418268E1B8400438E2D /* RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
+		52E5E41C268E1DEF00438E2D /* GramCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GramCoordinator.swift; sourceTree = "<group>"; };
 		6456E66349C593F888BB7E62 /* Pods-Texturegram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Texturegram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Texturegram/Pods-Texturegram.debug.xcconfig"; sourceTree = "<group>"; };
 		847B4A0C2248E2080071A8F5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		847B4A0F2248ED990071A8F5 /* OrderByType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderByType.swift; sourceTree = "<group>"; };
@@ -74,6 +86,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52E5E406268E0F3800438E2D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				52E5E413268E19CC00438E2D /* Coordinator */,
+				52E5E407268E0F4100438E2D /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		52E5E407268E0F4100438E2D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52E5E408268E0F6A00438E2D /* HomeController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		52E5E40C268E186200438E2D /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				52E5E40D268E186D00438E2D /* AppCoordinator.swift */,
+				52E5E410268E198E00438E2D /* BaseCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		52E5E413268E19CC00438E2D /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				52E5E414268E19E200438E2D /* HomeCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		52E5E41B268E1DCB00438E2D /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				52E5E41C268E1DEF00438E2D /* GramCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		847B4A0E2248ED880071A8F5 /* Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				84EEEC2D22449D00001D993D /* ASControlNode+Rx.swift */,
+				52E5E418268E1B8400438E2D /* RawRepresentable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -127,6 +182,7 @@
 		84EEEC4C2244A818001D993D /* Gram */ = {
 			isa = PBXGroup;
 			children = (
+				52E5E41B268E1DCB00438E2D /* Coordinator */,
 				84EEEC4F2244A839001D993D /* Entity */,
 				84FF881A223FC88B00147D54 /* Component */,
 				84FF8817223FC77000147D54 /* GramController.swift */,
@@ -184,6 +240,8 @@
 		84FF8819223FC88200147D54 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				52E5E40C268E186200438E2D /* Coordinator */,
+				52E5E406268E0F3800438E2D /* Home */,
 				84EEEC4C2244A818001D993D /* Gram */,
 			);
 			path = Modules;
@@ -353,21 +411,27 @@
 				84FF8818223FC77000147D54 /* GramController.swift in Sources */,
 				84EEEC342244A2A0001D993D /* AppContext.swift in Sources */,
 				84EEEC2E22449D00001D993D /* ASControlNode+Rx.swift in Sources */,
+				52E5E409268E0F6A00438E2D /* HomeController.swift in Sources */,
 				84EEEC3B2244A629001D993D /* RequestLoadingPlugin.swift in Sources */,
+				52E5E40E268E186D00438E2D /* AppCoordinator.swift in Sources */,
 				84EEEC572244AAE2001D993D /* ErrorTracker.swift in Sources */,
 				84EEEC552244AAD6001D993D /* ActivityIndicator.swift in Sources */,
+				52E5E411268E198E00438E2D /* BaseCoordinator.swift in Sources */,
 				84FF8806223FC6EB00147D54 /* AppDelegate.swift in Sources */,
 				847B4A102248ED990071A8F5 /* OrderByType.swift in Sources */,
 				84EEEC5B22464C53001D993D /* BaseResponse.swift in Sources */,
 				84EEEC3F2244A757001D993D /* ErrorResponse.swift in Sources */,
 				84EEEC372244A442001D993D /* UnsplashAPI.swift in Sources */,
+				52E5E419268E1B8400438E2D /* RawRepresentable.swift in Sources */,
 				84EEEC3D2244A734001D993D /* NetworkError.swift in Sources */,
+				52E5E415268E19E200438E2D /* HomeCoordinator.swift in Sources */,
 				84FF8820223FCBF100147D54 /* GramCell.swift in Sources */,
 				84EEEC392244A5CC001D993D /* NetworkService.swift in Sources */,
 				84EEEC512244A845001D993D /* GramModel.swift in Sources */,
 				84EEEC4E2244A829001D993D /* GramViewModel.swift in Sources */,
 				847B4A0D2248E2080071A8F5 /* UserModel.swift in Sources */,
 				84EEEC532244AA87001D993D /* ViewModelType.swift in Sources */,
+				52E5E41D268E1DEF00438E2D /* GramCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

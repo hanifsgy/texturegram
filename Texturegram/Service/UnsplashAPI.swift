@@ -11,10 +11,8 @@ import Moya
 public enum UnsplashAPI {
   
   case getRandomPhotos
-  
-  /// Photos
   case getPhotos(page: Int, perPage: Int, orderBy: OrderByType)
-  
+  case getUserCollections(username: String)
 }
 
 extension UnsplashAPI: TargetType {
@@ -37,13 +35,16 @@ extension UnsplashAPI: TargetType {
       return "/photos/"
     case .getPhotos:
       return "/photos"
+    case .getUserCollections(let username):
+      return "users/\(username)/collections"
     }
   }
   
   public var method: Moya.Method {
     switch self {
     case .getRandomPhotos,
-         .getPhotos:
+         .getPhotos,
+         .getUserCollections:
       return .get
     }
   }
@@ -64,6 +65,8 @@ extension UnsplashAPI: TargetType {
         "per_page": perPage,
         "order_by": orderBy.rawValue
       ]
+    default:
+      return nil
     }
   }
   
